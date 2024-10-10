@@ -76,10 +76,10 @@
                 .then(response => response.json())
                 .then(data => {
                     if (data.status === true) {
-                        document.querySelector('.loading-indicator').style.display = 'none';
+                        document.querySelector('#loading-indicator').style.display = 'none';
                         document.querySelector('.main').style.display = 'block';
                     } else {
-                        document.querySelector('.loading-indicator').style.display = 'none';
+                        document.querySelector('#loading-indicator').style.display = 'none';
                         document.querySelector('.main_bot').style.display = 'block';
                     }
                 })
