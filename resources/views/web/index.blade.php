@@ -28,9 +28,9 @@
 </head>
 
 <body>
-<div id="loading-indicator">
-    <div class="lds-hourglass"></div>
-</div>
+{{--<div id="loading-indicator">--}}
+{{--    <div class="lds-hourglass"></div>--}}
+{{--</div>--}}
 <main class="main" id="app_fitin">
     <div id="wrapper">
         <div class="layout">
@@ -40,9 +40,9 @@
         </div>
     </div>
 </main>
-<div class="main_bot">
-    Đây là web bot
-</div>
+{{--<div class="main_bot">--}}
+{{--    Đây là web bot--}}
+{{--</div>--}}
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
         integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
 </script>
@@ -56,37 +56,37 @@
 @yield('script_page')
 
 <script>
-    const fpPromise = import('https://fpjscdn.net/v3/zyVKr0Xb67SqJgEryFQE')
-        .then(FingerprintJS => FingerprintJS.load())
-
-    fpPromise
-        .then(fp => fp.get())
-        .then(result => {
-            const visitId = result.visitorId;
-
-            // Kiểm tra nếu URL chưa có visit_id, thêm nó vào query string
-            fetch('/get-visit_id', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
-                },
-                body: JSON.stringify({ visit_id: visitId })
-            })
-                .then(response => response.json())
-                .then(data => {
-                    if (data.status === true) {
-                        document.querySelector('#loading-indicator').style.display = 'none';
-                        document.querySelector('.main').style.display = 'block';
-                    } else {
-                        document.querySelector('#loading-indicator').style.display = 'none';
-                        document.querySelector('.main_bot').style.display = 'block';
-                    }
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                });
-        })
+    // const fpPromise = import('https://fpjscdn.net/v3/zyVKr0Xb67SqJgEryFQE')
+    //     .then(FingerprintJS => FingerprintJS.load())
+    //
+    // fpPromise
+    //     .then(fp => fp.get())
+    //     .then(result => {
+    //         const visitId = result.visitorId;
+    //
+    //         // Kiểm tra nếu URL chưa có visit_id, thêm nó vào query string
+    //         fetch('/get-visit_id', {
+    //             method: 'POST',
+    //             headers: {
+    //                 'Content-Type': 'application/json',
+    //                 'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+    //             },
+    //             body: JSON.stringify({ visit_id: visitId })
+    //         })
+    //             .then(response => response.json())
+    //             .then(data => {
+    //                 if (data.status === true) {
+    //                     document.querySelector('#loading-indicator').style.display = 'none';
+    //                     document.querySelector('.main').style.display = 'block';
+    //                 } else {
+    //                     document.querySelector('#loading-indicator').style.display = 'none';
+    //                     document.querySelector('.main_bot').style.display = 'block';
+    //                 }
+    //             })
+    //             .catch(error => {
+    //                 console.error('Error:', error);
+    //             });
+    //     })
 </script>
 <script>
     window.addEventListener("beforeunload", function () {

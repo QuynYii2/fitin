@@ -27,11 +27,54 @@ return [
             'number' => 1
         ],
         [
+            'name' => 'experience',
+            'title' => 'Hướng dẫn trải nghiệm',
+            'icon' => 'bi bi-grid',
+            'route' => 'admin.experience.index',
+            'submenu' => [],
+            'number' => 1
+        ],
+        [
             'name' => 'trademark',
             'title' => 'Thương hiệu',
             'icon' => 'bi bi-grid',
             'route' => 'admin.trademark.index',
             'submenu' => [],
+            'number' => 2
+        ],
+        [
+            'name' => 'category',
+            'title' => 'Danh mục sản phẩm',
+            'icon' => 'bi bi-grid',
+            'route' => 'admin.category.index',
+            'submenu' => [],
+            'number' => 2
+        ],
+//        [
+//            'name' => 'product',
+//            'title' => 'Quản lý sản phẩm',
+//            'icon' => 'bi bi-grid',
+//            'route' => 'admin.product.index',
+//            'submenu' => [],
+//            'number' => 2
+//        ],
+        [
+            'name' => 'new',
+            'title' => 'Khởi nguồn cảm hứng',
+            'icon' => 'bi bi-grid',
+            'route' => null,
+            'submenu' => [
+                [
+                    'title' => 'Danh mục',
+                    'route' => 'admin.category-new.index-cate',
+                    'name' => 'category'
+                ],
+                [
+                    'title' => 'Bài viết',
+                    'route' => 'admin.new.index',
+                    'name' => 'blog'
+                ],
+            ],
             'number' => 2
         ],
         [

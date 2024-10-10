@@ -19810,7 +19810,7 @@ input[type=search] {
     margin-bottom: 0
 }
 
-.article-page.v2 .block-article .block-title {
+.block-title {
     position: relative;
     font-family: ProximaNova;
     font-style: italic;
@@ -19823,13 +19823,13 @@ input[type=search] {
     margin-bottom: 15px
 }
 
-.article-page.v2 .block-article .block-title h3 {
+.block-title h3 {
     display: inline-block;
     background-color: #fff;
     padding-right: 15px
 }
 
-.article-page.v2 .block-article .block-title .line {
+.block-title .line {
     position: absolute;
     z-index: -1;
     left: 0;
@@ -33891,7 +33891,7 @@ a.fit-link-ico:after {
     padding-bottom: 15px
 }
 
-.fitv2 .sec-articles .box-inner .bg-img {
+.box-inner .bg-img {
     background-repeat: no-repeat;
     background-size: cover;
     height: 185px;
@@ -33899,11 +33899,11 @@ a.fit-link-ico:after {
     background-position: 50%
 }
 
-.fitv2 .sec-articles .box-inner .txt {
+.box-inner .txt {
     padding: 10px 0 5px
 }
 
-.fitv2 .sec-articles .box-inner .txt h3 {
+.box-inner .txt h3 {
     font-size: 16px;
     line-height: 20px;
     white-space: normal;
@@ -33920,16 +33920,16 @@ a.fit-link-ico:after {
     line-clamp: 2
 }
 
-.fitv2 .sec-articles .box-inner .txt .date i {
+.box-inner .txt .date i {
     margin-right: 2px;
     font-size: 16px
 }
 
-.fitv2 .sec-articles .box-inner .txt .date span {
+.box-inner .txt .date span {
     color: rgba(0, 0, 0, .5)
 }
 
-.fitv2 .sec-articles .box-inner .txt .date i, .fitv2 .sec-articles .box-inner .txt .date span {
+.box-inner .txt .date i, .fitv2 .sec-articles .box-inner .txt .date span {
     display: inline-block;
     vertical-align: middle
 }

@@ -47,97 +47,22 @@
             </section>
         @endif
 
-        <section class="sec-categories container mb-3">
-            <div class="title-h2 text-center"><h2>DANH MỤC SẢN PHẨM</h2></div>
-            <div class="row clearfix cate-block justify-center"><a
-                    href="https://web.archive.org/web/20200512015804mp_/https://fitin.vn/danh-muc/ban" title="Bàn"
-                    class="col-md-3 col-sm-4 col-6">
-                    <div class="cate-item">
-                        <div class="cate-img"><img
-                                src="https://web.archive.org/web/20200512015804im_/https://cdn.fitin.vn/cms-ecom/images/2020/04/27/1-ban-1587981900.jpg"
-                                class="img-responsive"></div>
-                        <h3>Bàn</h3></div>
-                </a> <a href="https://web.archive.org/web/20200512015804mp_/https://fitin.vn/danh-muc/ghe" title="Ghế"
-                        class="col-md-3 col-sm-4 col-6">
-                    <div class="cate-item">
-                        <div class="cate-img"><img
-                                src="https://web.archive.org/web/20200512015804im_/https://cdn.fitin.vn/cms-ecom/images/2020/04/27/2-ghe-1587981944.jpg"
-                                class="img-responsive"></div>
-                        <h3>Ghế</h3></div>
-                </a> <a href="https://web.archive.org/web/20200512015804mp_/https://fitin.vn/danh-muc/ke" title="Kệ"
-                        class="col-md-3 col-sm-4 col-6">
-                    <div class="cate-item">
-                        <div class="cate-img"><img
-                                src="https://web.archive.org/web/20200512015804im_/https://cdn.fitin.vn/cms-ecom/images/2020/04/27/3-ke-1587981966.jpg"
-                                class="img-responsive"></div>
-                        <h3>Kệ</h3></div>
-                </a> <a href="https://web.archive.org/web/20200512015804mp_/https://fitin.vn/danh-muc/tu" title="Tủ"
-                        class="col-md-3 col-sm-4 col-6">
-                    <div class="cate-item">
-                        <div class="cate-img"><img
-                                src="https://web.archive.org/web/20200512015804im_/https://cdn.fitin.vn/cms-ecom/images/2020/04/27/4-tu-1587981995.jpg"
-                                class="img-responsive"></div>
-                        <h3>Tủ</h3></div>
-                </a> <a href="https://web.archive.org/web/20200512015804mp_/https://fitin.vn/danh-muc/sofa" title="Sofa"
-                        class="col-md-3 col-sm-4 col-6">
-                    <div class="cate-item">
-                        <div class="cate-img"><img
-                                src="https://web.archive.org/web/20200512015804im_/https://cdn.fitin.vn/cms-ecom/images/2020/04/27/5-sofa-1587982024.jpg"
-                                class="img-responsive"></div>
-                        <h3>Sofa</h3></div>
-                </a> <a href="https://web.archive.org/web/20200512015804mp_/https://fitin.vn/danh-muc/giuong"
-                        title="Giường" class="col-md-3 col-sm-4 col-6">
-                    <div class="cate-item">
-                        <div class="cate-img"><img
-                                src="https://web.archive.org/web/20200512015804im_/https://cdn.fitin.vn/cms-ecom/images/2020/04/27/6-giuong-1587982051.jpg"
-                                class="img-responsive"></div>
-                        <h3>Giường</h3></div>
-                </a> <a
-                    href="https://web.archive.org/web/20200512015804mp_/https://fitin.vn/danh-muc/phukien/do-gia-dung"
-                    title="Đồ gia dụng" class="col-md-3 col-sm-4 col-6">
-                    <div class="cate-item">
-                        <div class="cate-img"><img
-                                src="https://web.archive.org/web/20200512015804im_/https://cdn.fitin.vn/cms-ecom/images/2020/04/24/7-kitchen-1587716252.jpg"
-                                class="img-responsive"></div>
-                        <h3>Đồ gia dụng</h3></div>
-                </a> <a href="https://web.archive.org/web/20200512015804mp_/https://fitin.vn/danh-muc/trangtri/den"
-                        title="Đèn" class="col-md-3 col-sm-4 col-6">
-                    <div class="cate-item">
-                        <div class="cate-img"><img
-                                src="https://web.archive.org/web/20200512015804im_/https://cdn.fitin.vn/cms-ecom/images/2020/04/27/8-den-1587982122.jpg"
-                                class="img-responsive"></div>
-                        <h3>Đèn</h3></div>
-                </a> <a
-                    href="https://web.archive.org/web/20200512015804mp_/https://fitin.vn/danh-muc/trangtri/lotrangtri"
-                    title="Lọ trang trí" class="col-md-3 col-sm-4 col-6">
-                    <div class="cate-item">
-                        <div class="cate-img"><img
-                                src="https://web.archive.org/web/20200512015804im_/https://cdn.fitin.vn/cms-ecom/images/2020/04/27/9-lo-trang-tri-1587982150.jpg"
-                                class="img-responsive"></div>
-                        <h3>Lọ trang trí</h3></div>
-                </a> <a href="https://web.archive.org/web/20200512015804mp_/https://fitin.vn/danh-muc/phukien/guong"
-                        title="Gương" class="col-md-3 col-sm-4 col-6">
-                    <div class="cate-item">
-                        <div class="cate-img"><img
-                                src="https://web.archive.org/web/20200512015804im_/https://cdn.fitin.vn/cms-ecom/images/2020/04/27/10-guong-1587982173.jpg"
-                                class="img-responsive"></div>
-                        <h3>Gương</h3></div>
-                </a> <a href="https://web.archive.org/web/20200512015804mp_/https://fitin.vn/danh-muc/phukien/thungrac"
-                        title="Thùng rác" class="col-md-3 col-sm-4 col-6">
-                    <div class="cate-item">
-                        <div class="cate-img"><img
-                                src="https://web.archive.org/web/20200512015804im_/https://cdn.fitin.vn/cms-ecom/images/2020/04/27/11-thungrac-1587982194.jpg"
-                                class="img-responsive"></div>
-                        <h3>Thùng rác</h3></div>
-                </a> <a href="https://web.archive.org/web/20200512015804mp_/https://fitin.vn/danh-muc/combo"
-                        title="Bộ sản phẩm" class="col-md-3 col-sm-4 col-6">
-                    <div class="cate-item">
-                        <div class="cate-img"><img
-                                src="https://web.archive.org/web/20200512015804im_/https://cdn.fitin.vn/cms-ecom/images/2020/04/27/12-bosanpham-1587982214.jpg"
-                                class="img-responsive"></div>
-                        <h3>Bộ sản phẩm</h3></div>
-                </a></div>
-        </section>
+        @if(count($listCate)>0)
+            <section class="sec-categories container mb-3">
+                <div class="title-h2 text-center"><h2>DANH MỤC SẢN PHẨM</h2></div>
+                <div class="row clearfix cate-block justify-center">
+                    @foreach($listCate as $cates)
+                        <a href="{{route('category',$cates->slug)}}" class="col-md-2 col-sm-4 col-6">
+                            <div class="cate-item">
+                                <div class="cate-img"><img
+                                        src="{{asset($cates->src)}}"
+                                        class="img-responsive"></div>
+                                <h3>{{$cates->name}}</h3></div>
+                        </a>
+                    @endforeach
+                </div>
+            </section>
+        @endif
 
         <section class="sec-products sec-product-flash flash-sale-carousel-wrapper"
                  style="background: rgb(244, 199, 92);">
@@ -211,15 +136,21 @@
                         $lastTwoBanners = $bannerBottom->slice(-2);
                     @endphp
                     <div class="col-md-5">
-                        @if(isset($lastTwoBanners[0]))
+                        @if(isset($lastTwoBanners[count($bannerBottom) - 2]))
                             <div class="block-banner-sm banner-top ">
-                                <a href="{{ $lastTwoBanners[0]->link ?? '#' }}"><img height="230"
-                                      src="{{ $lastTwoBanners[0]->src }}" class="img-responsive"></a></div>
+                                <a href="{{ $lastTwoBanners[count($bannerBottom) - 2]->link ?? '#' }}"><img
+                                        height="230"
+                                        src="{{ $lastTwoBanners[count($bannerBottom) - 2]->src }}"
+                                        class="img-responsive"></a>
+                            </div>
                         @endif
-                        @if(isset($lastTwoBanners[0]))
+                        @if(isset($lastTwoBanners[count($bannerBottom) - 1]))
                             <div class="block-banner-sm banner-bottom ">
-                                <a href="{{ $lastTwoBanners[1]->link ?? '#' }}"><img height="230"
-                                      src="{{ $lastTwoBanners[1]->src }}" class="img-responsive"></a></div>
+                                <a href="{{ $lastTwoBanners[count($bannerBottom) - 1]->link ?? '#' }}"><img
+                                        height="230"
+                                        src="{{ $lastTwoBanners[count($bannerBottom) - 1]->src }}"
+                                        class="img-responsive"></a>
+                            </div>
                         @endif
                     </div>
                 </div>
@@ -248,7 +179,8 @@
                                             <div class="related-product-info row">
                                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                                     <a href="https://web.archive.org/web/20200512015804mp_/https://fitin.vn/ghe-lam-viec-antu-1-1340.html"
-                                                       title="Ghế Làm Việc Make My Home Antu Nâu Nhạt" class="txt-bold">
+                                                       title="Ghế Làm Việc Make My Home Antu Nâu Nhạt"
+                                                       class="txt-bold">
                                                         Ghế Làm Việc Make My Home Antu Nâu Nhạt
                                                     </a>
                                                 </div>
@@ -308,54 +240,58 @@
             </div>
         </section>
 
-        <section class="sec-keyword container">
-            <div class="title-h2"><h2>TỪ KHÓA</h2></div>
-            <div
-                class="swiper swiper-key ml-0 mr-0 mt-3 mb-3 fit-slider fit-keyword-slider flickity-enabled is-draggable">
-                <div class="swiper-wrapper">
-                    @for($x=0;$x<12;$x++)
-                        <div class="swiper-slide">
-                            <a href="#" class="item-keySearch">
-                                <label>giá treo quần áo</label>
-                            </a>
-                        </div>
-                    @endfor
-                </div>
-
-                <div class="swiper-button-next"></div>
-                <div class="swiper-button-prev"></div>
-            </div>
-
-        </section>
-
-        <section class="sec-articles">
-            <div class="container">
-                <div class="title-h2"><h2>BÀI VIẾT GẦN ĐÂY</h2></div>
-                <div class="fit-slider fit-article-slider swiper swiper-blog">
+        @if(count($keySearch)>0)
+            <section class="sec-keyword container">
+                <div class="title-h2"><h2>TỪ KHÓA</h2></div>
+                <div
+                    class="swiper swiper-key ml-0 mr-0 mt-3 mb-3 fit-slider fit-keyword-slider flickity-enabled is-draggable">
                     <div class="swiper-wrapper">
-                        @for($i=0;$i<9;$i++)
-                            <div class="item-article swiper-slide">
-                                <div class="box-inner">
-                                    <a href="#" title="[Hot] Ưu Đãi 25% Gói Cải Tạo Nội Thất Giữa Mùa Dịch Covid-19"
-                                       target="_blank">
-                                        <div class="bg-img"
-                                             style="background: url('https://web.archive.org/web/20200512015804/https://cdn.fitin.vn/cms-ecom/images/2020/04/24/blog-1-1587717845.jpg') 0% 0% / cover no-repeat;"></div>
-                                        <div class="txt">
-                                            <h3>[Hot] Ưu Đãi 25% Gói Cải Tạo Nội Thất Giữa Mùa Dịch Covid-19</h3>
-                                            <p class="date mb-1"><i class="fa-regular fa-clock"></i> <span>2020-04-24 15:20:10</span>
-                                            </p>
-                                        </div>
-                                    </a>
-                                </div>
+                        @foreach($keySearch as $searchs)
+                            <div class="swiper-slide">
+                                <a href="{{route('category',$searchs->slug)}}" class="item-keySearch">
+                                    <label>{{$searchs->name}}</label>
+                                </a>
                             </div>
-                        @endfor
+                        @endforeach
                     </div>
 
-                    <div class="swiper-button-prev"></div>
                     <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
                 </div>
-            </div>
-        </section>
+
+            </section>
+        @endif
+
+        @if(count($listNew)>0)
+            <section class="sec-articles">
+                <div class="container">
+                    <div class="title-h2"><h2>BÀI VIẾT GẦN ĐÂY</h2></div>
+                    <div class="fit-slider fit-article-slider swiper swiper-blog">
+                        <div class="swiper-wrapper">
+                            @foreach($listNew as $listNews)
+                                <div class="item-article swiper-slide">
+                                    <div class="box-inner">
+                                        <a href="{{route('detail-post',$listNews->slug)}}" target="_blank">
+                                            <div class="bg-img"
+                                                 style="background: url({{asset($listNews->src)}}) 0% 0% / cover no-repeat;"></div>
+                                            <div class="txt">
+                                                <h3>{{$listNews->name}}</h3>
+                                                <p class="date mb-1"><i class="fa-regular fa-clock"></i>
+                                                    <span> {{ \Carbon\Carbon::parse($listNews->created_at)->format('Y-m-d H:i:s') }}</span>
+                                                </p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
+
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-button-next"></div>
+                    </div>
+                </div>
+            </section>
+        @endif
 
         @if(count($trademark)>0)
             <section class="sec-brands container">
