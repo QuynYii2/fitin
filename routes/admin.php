@@ -11,6 +11,7 @@ use \App\Http\Controllers\admin\ExperienceController;
 use \App\Http\Controllers\admin\NewController;
 use \App\Http\Controllers\admin\CategoryController;
 use \App\Http\Controllers\admin\ProductController;
+use \App\Http\Controllers\admin\ConsultingDesignController;
 
 Route::get('login', [LoginController::class, 'login'])->name('login');
 Route::post('dologin', [LoginController::class, 'doLogin'])->name('doLogin');
@@ -78,6 +79,15 @@ Route::middleware('check-admin-auth')->group(function () {
         Route::get('delete/{id}', [NewController::class, 'delete']);
         Route::get('edit/{id}', [NewController::class, 'edit'])->name('edit');
         Route::post('update/{id}', [NewController::class, 'update'])->name('update');
+    });
+
+    Route::prefix('consulting_design')->name('consulting_design.')->group(function () {
+        Route::get('/', [ConsultingDesignController::class, 'index'])->name('index');
+        Route::get('create', [ConsultingDesignController::class, 'create'])->name('create');
+        Route::post('store', [ConsultingDesignController::class, 'store'])->name('store');
+        Route::get('delete/{id}', [ConsultingDesignController::class, 'delete']);
+        Route::get('edit/{id}', [ConsultingDesignController::class, 'edit']);
+        Route::post('update/{id}', [ConsultingDesignController::class, 'update']);
     });
 
     Route::prefix('post')->name('post.')->group(function () {

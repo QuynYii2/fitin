@@ -96,7 +96,7 @@
                                 <ul class="sub-menu-thumbnail" style="justify-content: space-around;">
                                     <li>
                                         <div class="item-project"><a
-                                                href="#">
+                                                href="{{url('tu-van-thiet-ke-noi-that/1')}}">
                                                 <div class="item-img"><img
                                                         src="{{asset('assets/web/images/menu3-1.jpg')}}"
                                                         class="img-responsive"></div>
@@ -105,7 +105,7 @@
                                     </li>
                                     <li>
                                         <div class="item-project"><a rel="noopener noreferrer" target="_blank"
-                                                                     href="#">
+                                                                     href="{{url('tu-van-thiet-ke-noi-that/2')}}">
                                                 <div class="item-img"><img
                                                         src="{{asset('assets/web/images/menu3-2.jpg')}}"
                                                         class="img-responsive"></div>

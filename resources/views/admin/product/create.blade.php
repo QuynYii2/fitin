@@ -51,7 +51,7 @@
                                 <p class="m-0 parameter_2">Thương hiệu</p>
                             </div>
                             <div class="col-9">
-                                <select name="trademark" class="form-control">
+                                <select name="trademark_id" class="form-control">
                                     @foreach($trademark as $trademarks)
                                     <option value="{{$trademarks->id}}">{{$trademarks->name}}</option>
                                         @endforeach
@@ -76,18 +76,6 @@
                             </div>
                         </div>
 
-                        <div class="row mb-3">
-                            <div class="col-3 d-flex align-items-center">
-                                <p class="m-0">Ảnh bìa sản phẩm (<span style="color: red"> * </span>) :</p>
-                            </div>
-                            <div class="col-9">
-                                <div class="d-flex align-items-center selector__image justify-content-center"
-                                     style="width: 200px; height: 250px; background: #f0f0f0;cursor: pointer">
-                                    <img src="{{asset('assets/images/camera.png')}}">
-                                </div>
-                                <input type="file" hidden name="file_product" accept="image/*">
-                            </div>
-                        </div>
                         <div class="card mb-3">
                             <div class="card-header bg-info text-white">
                                 Hình ảnh sản phẩm
@@ -96,6 +84,22 @@
                                 <label class="mt-2 mb-2"><i class="fa fa-upload"></i> Chọn hoặc kéo ảnh vào khung bên
                                     dưới</label>
                                 <div class="input-image-product">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card mb-3">
+                            <a data-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="true"
+                               aria-controls="collapseExample1" class="btn bg-info text-white card-header">
+                                <p class="d-flex align-items-center justify-content-between mb-0"><strong
+                                        style="font-weight: unset">Mô tả sản phẩm</strong><i
+                                        class="fa fa-angle-down"></i></p>
+                            </a>
+                            <div id="collapseExample1" class="collapse shadow-sm show">
+                                <div class="card">
+                                    <div class="card-body mt-2">
+                                        <textarea name="describe" id="describe"
+                                                  class="ckeditor">{{ old('describe') }}</textarea>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -153,6 +157,11 @@
     <script src="//cdn.ckeditor.com/4.18.0/full/ckeditor.js"></script>
     <script type="text/javascript">
         CKEDITOR.replace('content', {
+            filebrowserUploadUrl: "{{route('admin.ckeditor.image-upload', ['_token' => csrf_token() ])}}",
+            filebrowserUploadMethod: 'form',
+            height:'700px'
+        });
+        CKEDITOR.replace('describe', {
             filebrowserUploadUrl: "{{route('admin.ckeditor.image-upload', ['_token' => csrf_token() ])}}",
             filebrowserUploadMethod: 'form',
             height:'500px'

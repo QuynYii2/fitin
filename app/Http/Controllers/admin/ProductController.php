@@ -8,6 +8,7 @@ use App\Models\ProductImageModel;
 use App\Models\ProductModel;
 use App\Models\TrademarkModel;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class ProductController extends Controller
@@ -21,6 +22,7 @@ class ProductController extends Controller
         foreach ($listData as $item) {
             $category = CategoryModel::find($item->category_id);
             $item->category_name = $category->name;
+            $item->src = ProductImageModel::where('product_id',$item->id)->first()->src;
         }
         return view('admin.product.index', compact('titlePage', 'page_menu', 'listData', 'page_sub'));
     }
@@ -39,7 +41,6 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         try {
-            $attribute = $request->variant;
             $category = CategoryModel::find($request->get('category'));
             if (empty($category)) {
                 return back()->with(['error' => 'Vui lòng chọn danh mục để tiếp tục']);
@@ -49,35 +50,31 @@ class ProductController extends Controller
             if (isset($category2)) {
                 $category_id = $category2->id;
             }
-            if (!$request->hasFile('file_product')) {
-                return back()->with(['error' => 'Vui lòng thêm hình ảnh sản phẩm']);
-            }
+
             $display = 0;
             if ($request->get('display') == 'on') {
                 $display = 1;
             }
-            $is_hot = 0;
-            if ($request->get('is_hot') == 'on') {
-                $is_hot = 1;
+            $is_sale = 0;
+            if ($request->get('is_sale') == 'on') {
+                $is_sale = 1;
             }
-            $file = $request->file('file_product');
-            $extension = $file->getClientOriginalExtension();
-            $image = 'upload/product/' . Str::random(40) . '.' . $extension;
-            $file->move('upload/product/', $image);
             $product = new ProductModel([
                 'name' => $request->get('name'),
-                'slug' => Str::slug($request->get('name')).'-'.Str::slug($request->get('code')),
-                'code' => $request->get('code'),
-                'src' => $image,
+                'slug' => Str::slug($request->get('name')),
+                'sku' => $request->get('code'),
                 'category_id' => $category_id??null,
+                'trademark_id' => $request->get('trademark_id'),
                 'price' => str_replace(",", "", $request->get('price')),
+                'price_promotional' => str_replace(",", "", $request->get('price_promotional')),
                 'content' => $request->get('content'),
+                'describe' => $request->get('describe'),
                 'display' => $display,
-                'is_hot' => $is_hot,
+                'is_sale' => $is_sale,
             ]);
             $product->save();
             $this->add_img_product($request, $product->id);
-            $this->add_and_update_attribute_product($attribute, $product);
+
             return \redirect()->route('admin.product.index')->with(['success' => 'Tạo mới sản phẩm thành công']);
         } catch (\Exception $exception) {
             return $exception->getMessage();
@@ -87,26 +84,14 @@ class ProductController extends Controller
     public function delete($id)
     {
         $product = ProductModel::find($id);
-        if ($product->src) {
-            unlink($product->src);
-        }
-        $product_color = ProductColorModel::where('product_id',$id)->get();
-        foreach ($product_color as $color){
-            if ($color->src) {
-                unlink($color->src);
-            }
-            $color->delete();
-        }
         $product_img = ProductImageModel::where('product_id',$id)->get();
         foreach ($product_img as $img){
             if ($img->src) {
-                unlink($img->src);
+                if (isset($img->src) && Storage::exists(str_replace('/storage', 'public', $img->src))) {
+                    Storage::delete(str_replace('/storage', 'public', $img->src));
+                }
             }
             $img->delete();
-        }
-        $order = OrderModel::where('product_id',$product->id)->get();
-        foreach ($order as $orders){
-            $orders->delete();
         }
         $product->delete();
         return \redirect()->route('admin.product.index')->with(['success' => 'Xóa sản phẩm thành công']);
@@ -125,16 +110,15 @@ class ProductController extends Controller
         }else{
             $category_child = CategoryModel::where('parent_id',$cate_big->parent_id)->get();
         }
-        $product_color = ProductColorModel::where('product_id',$id)->get();
+        $trademark = TrademarkModel::all();
         $product_img = ProductImageModel::where('product_id',$id)->get();
         return view('admin.product.edit', compact('category_child', 'titlePage', 'page_menu', 'page_sub',
-            'category_all','product','product_color','product_img','cate_big'));
+            'category_all','product','product_img','cate_big','trademark'));
     }
 
     public function update(Request $request, $id)
     {
         try {
-            $attribute = $request->variant;
             $product = ProductModel::find($id);
             $category = CategoryModel::find($request->get('category'));
             if (empty($category)) {
@@ -149,30 +133,24 @@ class ProductController extends Controller
             if ($request->display == 'on') {
                 $display = 1;
             }
-            $is_hot = 0;
-            if ($request->is_hot == 'on') {
-                $is_hot = 1;
+            $is_sale = 0;
+            if ($request->is_sale == 'on') {
+                $is_sale = 1;
             }
-            if (isset($request->file_product)) {
-                unlink($product->src);
-                $file = $request->file('file_product');
-                $extension = $file->getClientOriginalExtension();
-                $image = 'upload/product/' . Str::random(40) . '.' . $extension;
-                $file->move('upload/product/', $image);
-                $product->src = $image;
-            }
+
             $product->category_id = $category_id??null;
             $product->name = $request->get('name');
-            $product->slug = Str::slug($request->get('name')).'-'.Str::slug($request->get('code'));
-            $product->code = $request->get('code');
+            $product->slug = Str::slug($request->get('name'));
+            $product->sku = $request->get('code');
+            $product->trademark_id = $request->get('trademark_id');
             $product->price = str_replace(",", "", $request->get('price'));
+            $product->price_promotional = str_replace(",", "", $request->get('price_promotional')??0);
             $product->content = $request->get('content');
+            $product->describe = $request->get('describe');
             $product->display = $display;
-            $product->is_hot = $is_hot;
-
+            $product->is_sale = $is_sale;
             $product->save();
             $this->add_img_product($request, $product->id);
-            $this->add_and_update_attribute_product($attribute, $product);
             return \redirect()->route('admin.product.index')->with(['success' => 'Cập nhập sản phẩm thành công']);
         } catch (\Exception $exception) {
             return back()->with(['error' => $exception->getMessage()]);
@@ -183,7 +161,9 @@ class ProductController extends Controller
     {
         try {
             $img = ProductImageModel::find($request->get('id'));
-            unlink($img->src);
+            if (isset($img->src) && Storage::exists(str_replace('/storage', 'public', $img->src))) {
+                Storage::delete(str_replace('/storage', 'public', $img->src));
+            }
             $img->delete();
             $data['status'] = true;
             return $data;
@@ -191,6 +171,27 @@ class ProductController extends Controller
             $data['status'] = false;
             $data['msg'] = $exception->getMessage();
             return $data;
+        }
+    }
+
+    public function add_img_product($request, $product_id)
+    {
+        try {
+            if ($request->hasFile('images')) {
+                $file = $request->file('images');
+                foreach ($file as $value) {
+                    $file = $value;
+                    $imagePath = Storage::url($file->store('product', 'public'));
+                    $image_invest = new ProductImageModel([
+                        'product_id' => $product_id,
+                        'src' => $imagePath,
+                    ]);
+                    $image_invest->save();
+                }
+                return true;
+            }
+        } catch (\Exception $exception) {
+            return $exception->getMessage();
         }
     }
 }

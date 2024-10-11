@@ -64,53 +64,60 @@
             </section>
         @endif
 
-        <section class="sec-products sec-product-flash flash-sale-carousel-wrapper"
-                 style="background: rgb(244, 199, 92);">
-            <div class="container">
-                <div class="title-header row clearfix header-block">
-                    <div class="col-sm-4"><img
-                            src="{{asset('assets/web/images/flash-sale.png')}}"
-                            class="img-responsive"></div>
-                </div>
-                <div class="product-item-sale-block fit-product-list fit-slider fit-product-slider d-flex">
-                    @for($i=0;$i<4;$i++)
-                        <div class="fit-product-item">
-                            <div class="fit-product-item-inner">
-                                <div class="status-product-item"><span class="stt-promote">-10%</span></div>
-                                <div class="thumbs-lg" style="position: relative;"><a
-                                        href="#"
-                                        class="view-img-a">
-                                        <img
-                                            src="https://web.archive.org/web/20200527163310im_/https://cdn.fitin.vn/cms-ecom/thumbs/300x300/images/2020/04/01/ghe-day-du-the-palm-xanh-ngoc-2-1585735690.jpg"
-                                            id="addToCart_5094"></a></div>
-                                <div class="product-item-info"><span class="category-name"></span>
-                                    <div class="related-product-info row">
-                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12"><a
-                                                href="https://web.archive.org/web/20200512015804mp_/https://fitin.vn/ghe-day-du-the-palm-5094.html"
-                                                title="Ghế Dây Dù Furnist The Palm Xanh Ngọc" class="txt-bold">
-                                                Ghế Dây Dù Furnist The Palm Xanh Ngọc
-                                            </a></div>
-                                    </div>
-                                    <div class="related-product-price price-block">
-                                        <div class="ml-0 mr-0 row">
-                                            <div class="pl-0 col-8"><p class="current-price">1,620,000 đ</p>
-                                                <p class="price">1,800,000 đ</p></div>
-                                            <div class="col-brand col-4">
-                                                <div class="brand-image-wp"><a
-                                                        href="https://web.archive.org/web/20200512015804mp_/https://fitin.vn/thuong-hieu/furnist.html"
-                                                        title="Furnist"><img
-                                                            src="https://web.archive.org/web/20200512015804im_/https://cdn.fitin.vn/cms-ecom/images/2019/12/04/furnist-1575456016.png"
-                                                            alt="Furnist" class="brand-image"></a></div>
+        @if(count($listSale)>0)
+            <section class="sec-products sec-product-flash flash-sale-carousel-wrapper"
+                     style="background: rgb(244, 199, 92);">
+                <div class="container">
+                    <div class="title-header row clearfix header-block">
+                        <div class="col-sm-4"><img
+                                src="{{asset('assets/web/images/flash-sale.png')}}"
+                                class="img-responsive"></div>
+                    </div>
+                    <div class="product-item-sale-block fit-product-list fit-slider fit-product-slider d-flex">
+                        @foreach($listSale as $sale)
+                            <div class="fit-product-item">
+                                <div class="fit-product-item-inner">
+                                    @if($sale->price_promotional != 0)
+                                    <div class="status-product-item"><span class="stt-promote">-{{round( 100 - ($sale->price_promotional / $sale->price * 100))}}%</span></div>
+                                    @endif
+                                    <div class="thumbs-lg" style="position: relative;"><a
+                                            href="{{route('detail-product',$sale->slug)}}"
+                                            class="view-img-a">
+                                            <img src="{{$sale->src}}" id="addToCart_5094"></a></div>
+                                    <div class="product-item-info"><span class="category-name"></span>
+                                        <div class="related-product-info row">
+                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12"><a
+                                                    href="{{route('detail-product',$sale->slug)}}"
+                                                    class="txt-bold">
+                                                    {{$sale->name}}
+                                                </a></div>
+                                        </div>
+                                        <div class="related-product-price price-block">
+                                            <div class="ml-0 mr-0 row">
+                                                <div class="pl-0 col-8">
+                                                    @if($sale->price_promotional != 0)
+                                                        <p class="current-price">{{number_format($sale->price_promotional)}}
+                                                            đ</p>
+                                                        <p class="price">{{number_format($sale->price)}} đ</p>
+                                                    @else
+                                                        <p class="current-price">{{number_format($sale->price)}} đ</p>
+                                                    @endif
+                                                </div>
+                                                <div class="col-brand col-4">
+                                                    <div class="brand-image-wp">
+                                                        <a><img src="{{$sale->src_trademark}}" class="brand-image"></a>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    @endfor
+                        @endforeach
+                    </div>
                 </div>
-            </div>
-        </section>
+            </section>
+        @endif
 
         @if(count($bannerBottom)>2)
             <section class="sec-banner grid2-3banner container">
@@ -157,88 +164,101 @@
             </section>
         @endif
 
-        <section class="product-style2">
-            <div class="container">
-                <div class="title-h2 pb-4"><h2>TOP SẢN PHẨM BÁN CHẠY</h2></div>
-                <div class=" swiper swiper-product">
-                    <div class="swiper-wrapper">
-                        @for($j=0;$j<8;$j++)
-                            <div class="swiper-slide">
-                                <div class="fit-product-item">
-                                    <div class="fit-product-item-inner">
-                                        <div class="status-product-item"></div>
-                                        <div class="thumbs-lg" style="position: relative;">
-                                            <a href="#" class="view-img-a">
-                                                <img
-                                                    src="https://web.archive.org/web/20200512015804im_/https://cdn.fitin.vn/cms-ecom/thumbs/300x300/images/2020/04/29/antulb-2-eacf1db4c63c46c5828b3689efc8f8c8-master-1588137201.jpg"
-                                                    id="addToCart_1340">
-                                            </a>
-                                        </div>
-                                        <div class="product-item-info">
-                                            <span class="category-name"></span>
-                                            <div class="related-product-info row">
-                                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                                    <a href="https://web.archive.org/web/20200512015804mp_/https://fitin.vn/ghe-lam-viec-antu-1-1340.html"
-                                                       title="Ghế Làm Việc Make My Home Antu Nâu Nhạt"
-                                                       class="txt-bold">
-                                                        Ghế Làm Việc Make My Home Antu Nâu Nhạt
+        @if(count($listProduct)>0)
+            @foreach($listProduct as $product)
+                <section class="product-style2">
+                    <div class="container">
+                        <div class="title-h2 pb-4"><h2>{{$product->name}}</h2></div>
+                        <div class=" swiper swiper-product">
+                            <div class="swiper-wrapper">
+                                @foreach($product->data as $datas)
+                                    <div class="swiper-slide">
+                                        <div class="fit-product-item">
+                                            <div class="fit-product-item-inner">
+                                                @if($datas->price_promotional != 0)
+                                                    <div class="status-product-item"><span class="stt-promote">-{{round( 100 - ($datas->price_promotional / $datas->price * 100))}}%</span></div>
+                                                @endif
+                                                <div class="thumbs-lg" style="position: relative;">
+                                                    <a href="{{route('detail-product',$datas->slug)}}" class="view-img-a">
+                                                        <img
+                                                            src="{{asset($datas->src)}}"
+                                                            id="addToCart_1340">
                                                     </a>
                                                 </div>
-                                                <div
-                                                    class="related-product-rating col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                                    <div data-rating="0" class="react-rater">
-                                                        <div>
-                                                            <div class="react-rater-star is-disabled"><i
-                                                                    class="fa fa-star"></i></div>
-                                                        </div>
-                                                        <div>
-                                                            <div class="react-rater-star is-disabled"><i
-                                                                    class="fa fa-star"></i></div>
-                                                        </div>
-                                                        <div>
-                                                            <div class="react-rater-star is-disabled"><i
-                                                                    class="fa fa-star"></i></div>
-                                                        </div>
-                                                        <div>
-                                                            <div class="react-rater-star is-disabled"><i
-                                                                    class="fa fa-star"></i></div>
-                                                        </div>
-                                                        <div>
-                                                            <div class="react-rater-star is-disabled"><i
-                                                                    class="fa fa-star"></i></div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="related-product-price price-block">
-                                                <div class="ml-0 mr-0 row">
-                                                    <div class="pl-0 col-8"><p class="current-price">1,375,000 đ</p>
-                                                    </div>
-                                                    <div class="col-brand col-4">
-                                                        <div class="brand-image-wp">
-                                                            <a href="#">
-                                                                <img
-                                                                    src="https://web.archive.org/web/20200512015804im_/https://cdn.fitin.vn/cms-ecom/images/2019/12/23/make-my-home-1577087855.png"
-                                                                    class="brand-image">
+                                                <div class="product-item-info">
+                                                    <span class="category-name"></span>
+                                                    <div class="related-product-info row">
+                                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                            <a href="{{route('detail-product',$datas->slug)}}"
+                                                               class="txt-bold">
+                                                                {{$datas->name}}
                                                             </a>
+                                                        </div>
+                                                        <div
+                                                            class="related-product-rating col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                            <div data-rating="0" class="react-rater">
+                                                                <div>
+                                                                    <div class="react-rater-star is-disabled"><i
+                                                                            class="fa fa-star"></i></div>
+                                                                </div>
+                                                                <div>
+                                                                    <div class="react-rater-star is-disabled"><i
+                                                                            class="fa fa-star"></i></div>
+                                                                </div>
+                                                                <div>
+                                                                    <div class="react-rater-star is-disabled"><i
+                                                                            class="fa fa-star"></i></div>
+                                                                </div>
+                                                                <div>
+                                                                    <div class="react-rater-star is-disabled"><i
+                                                                            class="fa fa-star"></i></div>
+                                                                </div>
+                                                                <div>
+                                                                    <div class="react-rater-star is-disabled"><i
+                                                                            class="fa fa-star"></i></div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="related-product-price price-block">
+                                                        <div class="ml-0 mr-0 row">
+                                                            <div class="pl-0 col-8">
+                                                                @if($datas->price_promotional != 0)
+                                                                    <p class="current-price">{{number_format($datas->price_promotional)}}
+                                                                        đ</p>
+                                                                    <p class="price">{{number_format($datas->price)}}
+                                                                        đ</p>
+                                                                @else
+                                                                    <p class="current-price">{{number_format($datas->price)}}
+                                                                        đ</p>
+                                                                @endif
+                                                            </div>
+                                                            <div class="col-brand col-4">
+                                                                <div class="brand-image-wp">
+                                                                    <a>
+                                                                        <img src="{{asset($datas->src_trademark)}}"
+                                                                             class="brand-image">
+                                                                    </a>
+                                                                </div>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                @endforeach
                             </div>
-                        @endfor
+
+                            <div class="swiper-button-next"></div>
+                            <div class="swiper-button-prev"></div>
+
+                        </div>
+
                     </div>
-
-                    <div class="swiper-button-next"></div>
-                    <div class="swiper-button-prev"></div>
-
-                </div>
-
-            </div>
-        </section>
+                </section>
+            @endforeach
+        @endif
 
         @if(count($keySearch)>0)
             <section class="sec-keyword container">
@@ -431,11 +451,11 @@
             },
             breakpoints: {
                 1024: {
-                    slidesPerView: 6,
+                    slidesPerView: 7,
                     spaceBetween: 10,
                 },
                 768: {
-                    slidesPerView: 4,
+                    slidesPerView: 5,
                     spaceBetween: 10,
                 },
                 450: {

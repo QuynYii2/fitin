@@ -25014,7 +25014,7 @@ figure.zoomImg img {
 
 .product-list-item .price-block {
     padding-top: 10px;
-    border-top: 1px solid hsla(0, 0%, 63.1%, .37)
+    border-top: 1px solid hsla(0, 0%, 63.1%, .37);
 }
 
 .product-list-item .price-block p {
@@ -33468,7 +33468,7 @@ a.fit-link-ico:after {
     font-style: normal;
     letter-spacing: normal;
     text-align: center;
-    color: #fff
+    color: red
 }
 
 .fitv2 .fit-product-item-inner .status-product-item .btn.btn-wishlist {
@@ -33758,7 +33758,7 @@ a.fit-link-ico:after {
 }
 
 .fitv2 .sec-categories .cate-block .cate-item h3 {
-    font-size: 20px;
+    font-size: 17px;
     text-align: center;
     padding: 5px 15px
 }

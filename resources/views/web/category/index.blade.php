@@ -29,7 +29,7 @@
                                                     href="{{route('category',$cate->slug)}}"
                                                     class="title link @if($cate->id == $category->id) active @endif">
                                                     {{$cate->name}}
-                                                </a> <span class="menu-plug">(221)</span></strong>
+                                                </a> </strong>
                                         </li>
                                         @endforeach
                                     </ul>
@@ -43,20 +43,23 @@
                             <div class="category-title"><h1 class="title-content">{{$category->name}}</h1></div>
                             <div class="filter-list-box"></div>
                             <div class="product-list">
+                                @if(count($listData)>0)
                                 <div class="products-wrapper">
-                                    @for($i=0;$i<10;$i++)
+                                    @foreach($listData as $item)
                                     <div class="product-item">
                                         <div class="product-list-item">
-                                            <div class="status-product"></div>
-                                            <div class="view-img-big" style="position: relative;"><a href="#"><img
-                                                        src="https://web.archive.org/web/20200512015603im_/https://cdn.fitin.vn/cms-ecom/thumbs/300x300/product-tmp/2020/04/22/170110621-1560827576646swyp-1587529449.jpg"
+                                            @if($item->price_promotional != 0)
+                                                <div class="status-product-item"><span class="stt-promote">-{{round( 100 - ($item->price_promotional / $item->price * 100))}}%</span></div>
+                                            @endif
+                                            <div class="view-img-big" style="position: relative;"><a href="{{route('detail-product',$item->slug)}}"><img
+                                                        src="{{asset($item->src)}}"
                                                         id="addToCart_228"></a></div>
                                             <div class="product-list-detail"><span class="category-name"></span>
                                                 <div class="related-product-info row">
                                                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12"><a
-                                                            href="https://web.archive.org/web/20200512015603mp_/https://fitin.vn/ban-laptop-index-living-mall-smart-5900.html"
-                                                            title="Bàn Laptop Index Living Mall Smart" class="txt-bold">
-                                                            Bàn Laptop Index Living Mall Smart
+                                                            href="{{route('detail-product',$item->slug)}}"
+                                                             class="txt-bold">
+                                                           {{$item->name}}
                                                         </a></div>
                                                     <div
                                                         class="related-product-rating col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -86,14 +89,22 @@
                                                 </div>
                                                 <div class="related-product-price price-block">
                                                     <div class="ml-0 mr-0 row">
-                                                        <div class="pl-0 col-8"><p class="current-price">619,000 đ</p>
+                                                        <div class="pl-0 col-8">
+                                                            @if($item->price_promotional != 0)
+                                                                <p class="current-price">{{number_format($item->price_promotional)}}
+                                                                    đ</p>
+                                                                <p class="price">{{number_format($item->price)}}
+                                                                    đ</p>
+                                                            @else
+                                                                <p class="current-price">{{number_format($item->price)}}
+                                                                    đ</p>
+                                                            @endif
                                                         </div>
                                                         <div class="col-brand col-4">
-                                                            <div class="brand-image-wp"><a
-                                                                    href="https://web.archive.org/web/20200512015603mp_/https://fitin.vn/thuong-hieu/index-living-mall.html"
-                                                                    title="Index Living Mall"><img
-                                                                        src="https://web.archive.org/web/20200512015603im_/https://cdn.fitin.vn/cms-ecom/images/2020/01/17/index-livingmall-1579255376.png"
-                                                                        alt="Index Living Mall" class="brand-image"></a>
+                                                            <div class="brand-image-wp"><a>
+                                                                    <img src="{{asset($item->src_trademark)}}"
+                                                                         class="brand-image">
+                                                                </a>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -101,38 +112,18 @@
                                             </div>
                                         </div>
                                     </div>
-                                  @endfor
+                                  @endforeach
                                 </div>
-                                <div class="product_not_founds" style="display: none;">
+                                @else
+                                <div class="product_not_founds">
                                     <div role="alert" class="alert alert-warning">
                                         Sản phẩm bạn đang tìm không có.
                                     </div>
                                 </div>
+                                    @endif
                             </div>
-                            <div class="pagination-bar">
-                                <ul unselectable="unselectable" class="rc-pagination"><span>Trang: </span>
-                                    <li tabindex="0"
-                                        class="rc-pagination-item rc-pagination-item-1 rc-pagination-item-active">
-                                        <a>1</a></li>
-                                    <li class="rc-pagination-item rc-pagination-item-2"><a
-                                            href="https://web.archive.org/web/20200512015603mp_/https://fitin.vn/danh-muc/ban?page=2">2</a>
-                                    </li>
-                                    <li class="rc-pagination-item rc-pagination-item-3"><a
-                                            href="https://web.archive.org/web/20200512015603mp_/https://fitin.vn/danh-muc/ban?page=3">3</a>
-                                    </li>
-                                    <li class="rc-pagination-item rc-pagination-item-4"><a
-                                            href="https://web.archive.org/web/20200512015603mp_/https://fitin.vn/danh-muc/ban?page=4">4</a>
-                                    </li>
-                                    <li class="rc-pagination-item rc-pagination-item-5"><a
-                                            href="https://web.archive.org/web/20200512015603mp_/https://fitin.vn/danh-muc/ban?page=5">5</a>
-                                    </li>
-                                    <li tabindex="0" class="rc-pagination-jump-next"><a
-                                            href="https://web.archive.org/web/20200512015603mp_/https://fitin.vn/danh-muc/ban?page=6"
-                                            class="rc-pagination-item-link"></a></li>
-                                    <li class="rc-pagination-item rc-pagination-item-33"><a
-                                            href="https://web.archive.org/web/20200512015603mp_/https://fitin.vn/danh-muc/ban?page=33">33</a>
-                                    </li>
-                                </ul>
+                            <div class="d-flex justify-content-center mt-4 mb-5">
+                                {{ $listData->appends(request()->all())->links('web.partials.pagination') }}
                             </div>
                         </div>
                     </div>

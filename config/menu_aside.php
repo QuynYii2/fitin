@@ -50,14 +50,22 @@ return [
             'submenu' => [],
             'number' => 2
         ],
-//        [
-//            'name' => 'product',
-//            'title' => 'Quản lý sản phẩm',
-//            'icon' => 'bi bi-grid',
-//            'route' => 'admin.product.index',
-//            'submenu' => [],
-//            'number' => 2
-//        ],
+        [
+            'name' => 'product',
+            'title' => 'Quản lý sản phẩm',
+            'icon' => 'bi bi-grid',
+            'route' => 'admin.product.index',
+            'submenu' => [],
+            'number' => 2
+        ],
+        [
+            'name' => 'consulting_design',
+            'title' => 'Tư vấn thiết kế nội thất',
+            'icon' => 'bi bi-grid',
+            'route' => 'admin.consulting_design.index',
+            'submenu' => [],
+            'number' => 2
+        ],
         [
             'name' => 'new',
             'title' => 'Khởi nguồn cảm hứng',

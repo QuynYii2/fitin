@@ -17,7 +17,9 @@ Route::middleware('check-detect-bot')->group(function () {
     Route::get('khoi-nguon-cam-hung', [PostController::class, 'new'])->name('new');
     Route::get('bai-viet/{slug}', [PostController::class, 'post'])->name('post');
     Route::get('chi-tiet-bai-viet/{slug}', [PostController::class, 'detailPost'])->name('detail-post');
-
+    Route::get('tu-van-thiet-ke-noi-that/{id}', [HomeController::class, 'consultingDesign'])->name('consulting-design');
+    Route::get('chi-tiet/{slug}', [HomeController::class, 'detailConsultingDesign'])->name('detail-consulting-design');
+    Route::get('chi-tiet-san-pham/{slug}', [HomeController::class, 'detailProduct'])->name('detail-product');
 });
 
 Route::post('/update-leave-time', function () {
