@@ -86,9 +86,9 @@
             -moz-osx-font-smoothing: grayscale
         }
 
-        .main,.main_bot{
-            display: none;
-        }
+        /*.main,.main_bot{*/
+        /*    display: none;*/
+        /*}*/
         #loading-indicator {
             display: flex;
             justify-content: center;
