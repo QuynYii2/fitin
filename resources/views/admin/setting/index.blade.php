@@ -57,6 +57,30 @@
                         <input class="form-control" name="instagram" value="{{@$data->instagram}}" type="text" >
                     </div>
                 </div>
+                <div class="row mt-3">
+                    <div class="col-2">Url 301 :</div>
+                    <div class="col-10">
+                        <input class="form-control" name="url_301" value="{{@$data->url_301}}" type="text" >
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-2">Meta title :</div>
+                    <div class="col-10">
+                        <input class="form-control" name="meta_title" value="{{@$data->meta_title}}" type="text" >
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-2">Meta description :</div>
+                    <div class="col-10">
+                        <input class="form-control" name="meta_description" value="{{@$data->meta_description}}" type="text" >
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-2">Meta keywords :</div>
+                    <div class="col-10">
+                        <input class="form-control" name="meta_keywords" value="{{@$data->meta_keywords}}" type="text" >
+                    </div>
+                </div>
                 <input type="file" name="file" accept="image/x-png,image/gif,image/jpeg" hidden>
                 <button type="submit" class="btn btn-primary">Lưu</button>
             </form>

@@ -19,6 +19,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        $meta = \App\Models\SettingModel::first();
+
+        view()->share('setting', $meta);
     }
 }

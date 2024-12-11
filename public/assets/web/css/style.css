@@ -85,9 +85,9 @@ a{
     margin-bottom: 5px;
     font-weight: unset;
 }
-.main,.main_bot{
-    display: none;
-}
+/*.main,.main_bot{*/
+/*    display: none;*/
+/*}*/
 .view-img-a{
     display: flex!important;
     justify-content: center;

@@ -53,38 +53,38 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 @yield('script_page')
 {{--<script src="{{ asset('assets/web/js/main.js') }}"></script>--}}
-<script>
+{{--<script>--}}
 
-    const fpPromise = import('https://fpjscdn.net/v3/zyVKr0Xb67SqJgEryFQE')
-        .then(FingerprintJS => FingerprintJS.load())
+{{--    const fpPromise = import('https://fpjscdn.net/v3/zyVKr0Xb67SqJgEryFQE')--}}
+{{--        .then(FingerprintJS => FingerprintJS.load())--}}
 
-    fpPromise
-        .then(fp => fp.get())
-        .then(result => {
-            const visitId = result.visitorId;
+{{--    fpPromise--}}
+{{--        .then(fp => fp.get())--}}
+{{--        .then(result => {--}}
+{{--            const visitId = result.visitorId;--}}
 
-            // Kiểm tra nếu URL chưa có visit_id, thêm nó vào query string
-            fetch('/get-visit_id', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
-                },
-                body: JSON.stringify({ visit_id: visitId })
-            })
-                .then(response => response.json())
-                .then(data => {
-                    if (data.status === true) {
+{{--            // Kiểm tra nếu URL chưa có visit_id, thêm nó vào query string--}}
+{{--            fetch('/get-visit_id', {--}}
+{{--                method: 'POST',--}}
+{{--                headers: {--}}
+{{--                    'Content-Type': 'application/json',--}}
+{{--                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')--}}
+{{--                },--}}
+{{--                body: JSON.stringify({ visit_id: visitId })--}}
+{{--            })--}}
+{{--                .then(response => response.json())--}}
+{{--                .then(data => {--}}
+{{--                    if (data.status === true) {--}}
 
-                    } else {
-                        console.error('Lỗi khi lấy visit_id');
-                    }
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                });
-        })
-</script>
+{{--                    } else {--}}
+{{--                        console.error('Lỗi khi lấy visit_id');--}}
+{{--                    }--}}
+{{--                })--}}
+{{--                .catch(error => {--}}
+{{--                    console.error('Error:', error);--}}
+{{--                });--}}
+{{--        })--}}
+{{--</script>--}}
 <script>
     window.addEventListener("beforeunload", function () {
         navigator.sendBeacon('/update-leave-time');

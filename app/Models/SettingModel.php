@@ -14,6 +14,10 @@ class SettingModel extends Model
         'contact',
         'describe',
         'facebook',
-        'instagram'
+        'instagram',
+        'url_301',
+        'meta_title',
+        'meta_description',
+        'meta_keywords',
     ];
 }

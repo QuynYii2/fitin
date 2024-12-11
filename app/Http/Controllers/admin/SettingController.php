@@ -35,6 +35,10 @@ class SettingController extends Controller
             $setting->contact = $request->get('contact');
             $setting->facebook = $request->get('facebook');
             $setting->instagram = $request->get('instagram');
+            $setting->url_301 = $request->get('url_301');
+            $setting->meta_title = $request->get('meta_title');
+            $setting->meta_description = $request->get('meta_description');
+            $setting->meta_keywords = $request->get('meta_keywords');
             $setting->save();
         }else{
             $imagePath = null;
@@ -48,6 +52,10 @@ class SettingController extends Controller
                 'facebook'=>$request->get('facebook'),
                 'logo'=>$imagePath,
                 'instagram'=>$request->get('instagram'),
+                'url_301'=>$request->get('url_301'),
+                'meta_title'=>$request->get('meta_title'),
+                'meta_description'=>$request->get('meta_description'),
+                'meta_keywords'=>$request->get('meta_keywords'),
             ]);
             $setting->save();
         }
